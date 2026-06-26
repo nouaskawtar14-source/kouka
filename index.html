@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TypeRush — Test de vitesse de frappe</title>
+
+  <!-- Polices Google Fonts : une police mécanique pour l'identité, une monospace pour la frappe -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Fond décoratif : grille de touches en filigrane -->
+  <div class="key-grid-bg" aria-hidden="true"></div>
+
+  <div class="app">
+
+    <!-- En-tête -->
+    <header class="app-header">
+      <h1 class="logo">
+        <span class="logo-key">⌨</span>
+        TypeRush
+      </h1>
+      <p class="tagline">Pose tes doigts. La course commence à la première touche.</p>
+    </header>
+
+    <!-- Barre de contrôle : niveau + meilleur score -->
+    <section class="control-bar" aria-label="Réglages du test">
+      <div class="control-group">
+        <label for="level-select">Niveau</label>
+        <select id="level-select" aria-label="Choisir le niveau de difficulté">
+          <option value="easy">Facile</option>
+          <option value="medium" selected>Moyen</option>
+          <option value="hard">Difficile</option>
+        </select>
+      </div>
+
+      <div class="control-group best-score-group">
+        <span class="control-label">Meilleur score</span>
+        <span class="best-score" id="best-score-display">— WPM</span>
+      </div>
+    </section>
+
+    <!-- Tableau de bord en direct : timer / WPM live / précision live -->
+    <section class="live-stats" aria-label="Statistiques en direct">
+      <div class="stat-pill">
+        <span class="stat-value" id="timer-display">0.0</span>
+        <span class="stat-unit">s</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-value" id="live-wpm">0</span>
+        <span class="stat-unit">WPM</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-value" id="live-accuracy">100</span>
+        <span class="stat-unit">%</span>
+      </div>
+    </section>
+
+    <!-- Zone principale de frappe -->
+    <main class="type-zone">
+      <div class="text-display" id="text-display" aria-live="off">
+        <!-- Les <span> de caractères sont générés dynamiquement par script.js -->
+      </div>
+
+      <textarea
+        id="text-input"
+        class="text-input"
+        rows="3"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        placeholder="Clique ici et commence à taper pour démarrer le chrono…"
+        aria-label="Zone de saisie du texte à reproduire"
+      ></textarea>
+
+      <div class="progress-track" aria-hidden="true">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </main>
+
+    <!-- Carte de résultats, masquée jusqu'à la fin du test -->
+    <section class="result-card" id="result-card" hidden aria-live="polite">
+      <h2 class="result-title">Résultats</h2>
+
+      <div class="result-grid">
+        <div class="result-item">
+          <span class="result-label">Temps</span>
+          <span class="result-number" id="result-time">0s</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">WPM</span>
+          <span class="result-number" id="result-wpm">0</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Précision</span>
+          <span class="result-number" id="result-accuracy">0%</span>
+        </div>
+      </div>
+
+      <p class="result-message" id="result-message"></p>
+      <p class="result-record" id="result-record" hidden>🏆 Nouveau record sur ce niveau !</p>
+    </section>
+
+    <!-- Actions -->
+    <div class="actions">
+      <button type="button" class="btn btn-primary" id="new-test-btn">
+        <span class="key-icon">↵</span> Nouveau test
+      </button>
+    </div>
+
+    <footer class="app-footer">
+      <p>Conçu pour les claviers rapides et les esprits patients.</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+</body>
+</html>
